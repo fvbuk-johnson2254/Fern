@@ -1,0 +1,53 @@
+diff --git a/node_modules/youtube-search-api/dist/index.d.ts b/node_modules/youtube-search-api/dist/index.d.ts
+index 2590b4a..6bccd09 100644
+--- a/node_modules/youtube-search-api/dist/index.d.ts
++++ b/node_modules/youtube-search-api/dist/index.d.ts
+@@ -1,4 +1,4 @@
+-interface SearchItem {
++export interface SearchItem {
+     id: string;
+     type: string;
+     thumbnail: any;
+diff --git a/node_modules/youtube-search-api/dist/index.js b/node_modules/youtube-search-api/dist/index.js
+index 2d9b921..fd7d1ea 100644
+--- a/node_modules/youtube-search-api/dist/index.js
++++ b/node_modules/youtube-search-api/dist/index.js
+@@ -260,13 +260,13 @@ const GetChannelById = (channelId) => __awaiter(void 0, void 0, void 0, function
+         const tabs = page.initdata.contents.twoColumnBrowseResultsRenderer.tabs;
+         const items = tabs
+             .map((json) => {
+-            if (json && json.tabRenderer) {
+-                const tabRenderer = json.tabRenderer;
+-                const title = tabRenderer.title;
+-                const content = tabRenderer.content;
+-                return { title, content };
+-            }
+-        })
++                if (json && json.tabRenderer) {
++                    const tabRenderer = json.tabRenderer;
++                    const title = tabRenderer.title;
++                    const content = tabRenderer.content;
++                    return { title, content };
++                }
++            })
+             .filter((y) => typeof y !== "undefined");
+         return items;
+     }
+@@ -317,7 +317,7 @@ const VideoRender = (json) => {
+                 videoRenderer.badges.length > 0 &&
+                 videoRenderer.badges[0].metadataBadgeRenderer &&
+                 videoRenderer.badges[0].metadataBadgeRenderer.style ===
+-                    "BADGE_STYLE_TYPE_LIVE_NOW") {
++                "BADGE_STYLE_TYPE_LIVE_NOW") {
+                 isLive = true;
+             }
+             if (videoRenderer.thumbnailOverlays) {
+@@ -370,7 +370,7 @@ const compactVideoRenderer = (json) => {
+         compactVideoRendererJson.badges.length > 0 &&
+         compactVideoRendererJson.badges[0].metadataBadgeRenderer &&
+         compactVideoRendererJson.badges[0].metadataBadgeRenderer.style ===
+-            "BADGE_STYLE_TYPE_LIVE_NOW") {
++        "BADGE_STYLE_TYPE_LIVE_NOW") {
+         isLive = true;
+     }
+     return {
