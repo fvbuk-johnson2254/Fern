@@ -1,5 +1,6 @@
 <script lang="ts">
   import SearchBar from "./SearchBar.svelte";
+  import { page } from "$app/state";
 </script>
 
 <header class="bg-charcoal text-gray-100 px-4 sm:px-6 py-3 shadow-md border-b border-slate-700">
@@ -10,7 +11,7 @@
       </h1>
       
       <nav class="hidden md:flex space-x-4">
-        <a href="#/" class="text-gray-400 transition duration-300 hover:text-white whitespace-nowrap">Home</a>
+        <a href="{page.url.origin}" class="text-gray-400 transition duration-300 hover:text-white whitespace-nowrap">Home</a>
         <a href="#/" class="text-gray-400 transition duration-300 hover:text-white whitespace-nowrap">Trending</a>
         <a href="#/" class="text-gray-400 transition duration-300 hover:text-white whitespace-nowrap">Subscriptions</a>
       </nav>

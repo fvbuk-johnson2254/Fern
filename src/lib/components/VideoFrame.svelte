@@ -1,7 +1,7 @@
 <script lang="ts">
-    import type { VideoDetails } from "youtube-search-api";
+    import type { VideoFrame } from "$lib/types/VideoFrame";
 
-    let props:VideoDetails = $props();
+    const props : VideoFrame = $props();
 </script>
 
-<iframe src="https://www.youtube-nocookie.com/embed/{props.id}" title="Video Frame"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/{props.id}" title="Video Frame" width=900 height=500></iframe>

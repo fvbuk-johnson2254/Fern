@@ -1,12 +1,12 @@
 <script lang="ts">
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
   import { goto } from "$app/navigation";
   
-  let searchValue = $page.url.searchParams.get("q") || "";
+  let searchValue = page.url.searchParams.get("q") || "";
   
   function handleSubmit(event: Event) {
     event.preventDefault();
-    goto(`?q=${encodeURIComponent(searchValue)}`, { replaceState: true, keepFocus: true });
+    goto(`${page.url.origin}?q=${encodeURIComponent(searchValue)}`, { replaceState: true, keepFocus: true });
   }
 </script>
 

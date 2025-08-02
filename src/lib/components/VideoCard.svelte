@@ -1,6 +1,8 @@
 <script lang="ts">
 	import type { VideoCard } from '$lib/types/VideoCard';
+	import { goto } from '$app/navigation';
 	let props: VideoCard = $props();
+
 </script>
 
 <div class="bg-neutral-900 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
@@ -12,7 +14,12 @@
 		>
 	</div>
 	<div class="p-4">
-		<h2 class="text-lg font-semibold hover:text-royalBlue cursor-pointer">{props.title}</h2>
+		<a 
+  href={`/watch?v=${props.id}`} 
+  class="text-lg font-semibold hover:text-royalBlue cursor-pointer"
+>
+  {props.title}
+</a>
 		<p class="text-gray-400 text-sm mt-1">{props.channelTitle}</p>
 	</div>
 </div>
